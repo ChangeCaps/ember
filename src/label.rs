@@ -7,6 +7,8 @@ use std::{
 
 use ahash::AHasher;
 
+pub use ember_macro::PhaseLabel;
+
 #[derive(Clone, Debug)]
 pub struct RawLabel {
     ty: Option<TypeId>,
@@ -92,6 +94,12 @@ macro_rules! label {
         impl From<RawLabel> for $raw_ident {
             fn from(label: RawLabel) -> Self {
                 Self(label)
+            }
+        }
+
+        impl<T: $trait_ident> From<T> for $raw_ident {
+            fn from(label: T) -> Self {
+                label.raw_label()
             }
         }
     };

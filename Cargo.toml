@@ -11,3 +11,4 @@ members = ["ember-macro"]
 [dependencies]
 ahash = "0.7"
 ember-macro = { version = "0.1", path = "ember-macro" }
+thiserror = "1.0"
